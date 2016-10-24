@@ -37,7 +37,7 @@ class Dante.Editor.Menu extends Dante.View
       ]
     ###
 
-    buttons: ['bold', 'italic', 'createlink', 'divider', 'h3', 'h4', 'blockquote']
+    buttons: ['bold', 'italic', 'createlink', 'divider', 'h3', 'h4', 'blockquote', "code"]
 
   template: ()=>
     html = "<div class='dante-menu-linkinput'><input class='dante-menu-input' placeholder='Paste or type a link'><div class='dante-menu-button'>x</div></div>"
@@ -160,7 +160,7 @@ class Dante.Editor.Menu extends Dante.View
 
   commandWrap: (tag) ->
     node = @current_editor.current_node
-    val = "<" + tag + ">" + selection + "</" + tag + ">"
+    val = "<" + tag + ">" + $(node).text() + "</" + tag + ">"
     @commandOverall "insertHTML", val
 
   # node effects
